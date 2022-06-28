@@ -15,3 +15,4 @@ if (no_of_teachers == 10 and no_of_female_students == 30
     and no_of_male_students == 20 and x + y == 30):
     print('The course is valid')
     print('Hello man1231231')
+    print('Helloa')
