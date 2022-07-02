@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>{{ question.question_text }}</h1>
+    <form action="{% url 'vote' question.id %}" method="POST">
+        {% csrf_token %}
+        <ul style="list-style: none;">
+            {% if question %}
+                {% for item in question.choice_set.all %}
+                    <li>
+                        <input type="radio" value="{{ item.id }}" name="choice">{{ item.choice_text }}
+                    </li>
+                {% endfor %}
+                    <input type="submit" value="Send">
+            {% else %}
+                <h1>Lỗi</h1>
+            {% endif %}
+        </ul>
+    </form>
+</body>
+</html>
+

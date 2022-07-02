@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Đây là Template</h1>
+    <ul>
+        {% if dsRequest  %}
+            {% for item in dsRequest %}
+                <li>
+                    <p>{{ item.question }}
+                        {% for list in item.question.choice_set.all  %}
+                            <p>{{ list.choice_text }}</p>
+                        {% endfor %}    
+                    <p>
+                    <p>{{ item.choice_text }}<p>
+                    <p>{{ item.vote }}<p>
+                </li>
+            {% endfor %}
+        {% else %}
+            <h3 style="color:red">Không có dữ liệu nào!</h3>
+        {% endif %}
+    </ul>
+</body>
+</html>

@@ -17,7 +17,11 @@ Including another URLconf
 from django.urls import path
 from . import views
 
-app_name = 'polls'
+
 urlpatterns = [
+    #đặt tên path bằng name sẽ truy vấn dễ dàng ở template vidu ở questionList.html dòng 16
+    path('detail/<int:question_id>/', views.detailView, name = 'view_detail'),
+    path('list/',views.viewlist, name = 'view_list'),
     path('', views.index, name="index"),
+    path('viewchoice/',views.vote, name='vote')
 ]

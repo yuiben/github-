@@ -10,9 +10,9 @@
     <h1>Đây là Template của {{name}}</h1>
     <ul>
         {% for item in thuonghieu %}
-        <li>
-            {{item}}
-        </li>
+            {% if item != 'suzuki' %}
+                <li>{{item}}</li>
+            {%  endif  %}
         {% endfor %}
     </ul>
 </body>
