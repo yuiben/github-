@@ -19,9 +19,20 @@ from . import views
 
 app_name= "polls"
 urlpatterns = [
+    path('', views.IndexClass.as_view(), name='index'),
     #đặt tên path bằng name sẽ truy vấn dễ dàng ở template vidu ở questionList.html dòng 16
     path('detail/<int:question_id>/', views.detailView, name = 'view_detail'),
     path('list/',views.viewlist, name = 'view_list'),
-    path('', views.index, name="index"),
-    path('<int:question_id>',views.vote, name='vote')
+    #path('', views.index, name="index"),
+    path('<int:question_id>',views.vote, name='vote'),
+    
+    #####################
+    path('add/', views.PostClass.as_view(), name="add"),
+    #path('add/', views.add_post, name="add"),
+    
+    path('save/', views.ClassSaveNews.as_view(), name="save_news"),
+    #path('save/', views.save_news, name="save_news"),
+    
+    path('email/', views.email_view, name="email"),
+    path('email-request/', views.email_request, name="email_request"),
 ]

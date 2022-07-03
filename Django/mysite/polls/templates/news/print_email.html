@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>Tieu De</td>
+            <td>Noi Dung</td>
+            <td>Email</td>
+            <td>CC</td>
+        </tr>
+        <tr>
+            {% comment %} <td>{{ title }}</td>
+            <td>{{ content }}</td>
+            <td>{{ email_ }}</td>
+            <td>{{ cc_ }}</td> {% endcomment %}
+            <td>{{ email_data.title }}</td>
+            <td>{{ email_data.content }}</td>
+            <td>{{ email_data.email }}</td>
+            <td>{{ email_data.cc }}</td>
+
+        </tr>
+    </table>
+</body>
+</html>
