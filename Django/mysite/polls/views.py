@@ -1,3 +1,4 @@
+from ast import Try
 from django.http import HttpRequest,HttpResponse
 from django.shortcuts import render, get_object_or_404
 from .models import Choice, Question
@@ -24,11 +25,17 @@ def detailView(request, question_id):
     context = {"question" : qs}
     return render(request, "polls/detail_question.html", context)
 
-def vote(request):
-    #q = Question.objects.get(pk=question_id)
-    c = Choice.objects.all()
-    context = {"dsRequest" : c}
-    #dulieu_inpuit = request.POST["choice"]
-    #return HttpResponse(dulieu_inpuit)
-    return render(request, "polls/Choice.html", context)
+def vote(request, question_id):
+    q = Question.objects.get(pk=question_id)
+    #context = {"dsRequest" : c}
+    try:
+        dulieu_input = request.POST["choice"]
+        c = q.choice_set.get(pk=dulieu_input)
+    except:
+        HttpResponse("Lỗi không có choice")
+    
+    c.vote = c.vote + 1
+    c.save()
+    #return HttpResponse(c.vote)
+    return render(request, "polls/result.html", {"question":q})
     

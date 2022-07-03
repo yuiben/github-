@@ -1,0 +1,24 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        {% if question  %}
+            <h1>{{ question.question_text }}</h1>
+            <p>Kết quả của cuộc bình chọn là : </p>
+            {% for item in question.choice_set.all %}
+                <p>{{ item.choice_text }} : {{ item.vote }} Lượt</p>
+            {% endfor %}
+            <a href="{% url 'view_list' %}">Come Back!</a>
+        {% else %}
+            <h3 style="color:red">Không có dữ liệu nào!</h3>
+        {% endif %}
+    </ul>
+</body>
+</html>
