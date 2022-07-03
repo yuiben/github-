@@ -15,7 +15,7 @@
             {% for item in question.choice_set.all %}
                 <p>{{ item.choice_text }} : {{ item.vote }} Lượt</p>
             {% endfor %}
-            <a href="{% url 'view_list' %}">Come Back!</a>
+            <a href="{% url 'polls:view_list' %}">Come Back!</a>
         {% else %}
             <h3 style="color:red">Không có dữ liệu nào!</h3>
         {% endif %}

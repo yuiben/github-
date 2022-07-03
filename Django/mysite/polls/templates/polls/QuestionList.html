@@ -13,7 +13,7 @@
         {% if dsRequest  %}
             {% for item in dsRequest %}
                 <li>
-                    <a href="{% url 'view_detail' item.id %}"><p>{{ item.question_text }}<p></a>
+                    <a href="{% url 'polls:view_detail' item.id %}"><p>{{ item.question_text }}<p></a>
                 </li>
             {% endfor %}
         {% else %}
